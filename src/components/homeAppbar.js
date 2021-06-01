@@ -25,7 +25,7 @@ export default function HomeAppbar() {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar position="static" color="default" elevation={0}>
         <Toolbar>
           <IconButton
             edge="start"

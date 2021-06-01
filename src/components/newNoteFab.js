@@ -8,11 +8,10 @@ import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import Grid from '@material-ui/core/Grid';
 import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
-import Input from '@material-ui/core/Input';
+import InputBase from '@material-ui/core/InputBase';
 import Dialog from '@material-ui/core/Dialog';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTheme } from '@material-ui/core/styles';
-
 import { makeStyles } from "@material-ui/core/styles";
 import { add } from '../services/dbService';
 
@@ -29,11 +28,11 @@ const useStyles = makeStyles((theme) => ({
     dialogAppbar:{
         width: "100%"
     },
-    addNotesForm:{
-        minWidth: "600px"
-    },
     inputWrapper:{
         margin: theme.spacing(2),
+        [theme.breakpoints.up('sm')]: {
+            minWidth: "500px",
+        },
     },
     addNotesInput: {
         border: 'none',
@@ -105,7 +104,7 @@ export default function NewNoteFab(props) {
             autoComplete="off"
             onSubmit={handleSubmit}
         >
-        <AppBar className={classes.dialogAppbar} position="static">
+        <AppBar elevation={0} color="default" className={classes.dialogAppbar} position="static">
         <Toolbar>
           <IconButton onClick={handleClose} edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
             <ArrowBackIcon />
@@ -113,25 +112,26 @@ export default function NewNoteFab(props) {
           <Typography variant="h6" className={classes.title}>
             New Note
           </Typography>
-          <Button type="submit" color="inherit">Save</Button>
+          <Button type="submit" color="inherit" disabled={status.length === 0}>Save</Button>
         </Toolbar>
       </AppBar>
         <Grid container>
             <Grid item xs={12}>
         
             <div className={classes.inputWrapper}>
-        <Input
+        <InputBase
           id="outlined-basic"
           className={classes.addNotesInput}
           label=""
           placeholder="Start your note..."
           variant="standard"
           multiline
-          rows={4}
+          rowsMin={4}
           fullWidth
           disableUnderline
           value={status}
           onChange={handleChange}
+          height="100%"
         />
         </div>
         
