@@ -50,14 +50,14 @@ export default function HomePage() {
     
     return notes
   }
-
+ 
   return (
     <div className="homePage">
       <HomeAppbar />
       
       <Grid container justify="center" className={classes.pageContent}>
         <Grid item xs={12} md={6}>
-        {notes && (<div>{notes.length === 0 ? (<p>Start by Adding a note.</p>) : (<div>{notes.slice(0).reverse().map((n,i) => <NotesCard key={i} note={n} />)}</div>)}</div>)}
+        {notes && (<div>{notes.length === 0 ? (<p>Start by Adding a note.</p>) : (<div>{notes.slice(0).reverse().map((n,i) => <NotesCard key={i} note={n} refresh={getAllNotes}/>)}</div>)}</div>)}
         </Grid>
       </Grid>
       <div className={classes.newNoteFab}><NewNoteFab refresh={getAllNotes}/></div>
