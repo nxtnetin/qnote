@@ -60,6 +60,7 @@ export default function NotesCard(props) {
   };
   
   return (
+    
     <Card className={classes.root} elevation={0}>
       <CardHeader
         avatar={

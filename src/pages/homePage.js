@@ -1,4 +1,5 @@
 import React, { useEffect }  from "react";
+import { Link } from "react-router-dom";
 import HomeAppbar from "../components/homeAppbar";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from '@material-ui/core/Grid';
@@ -57,7 +58,7 @@ export default function HomePage() {
       
       <Grid container justify="center" className={classes.pageContent}>
         <Grid item xs={12} md={6}>
-        {notes && (<div>{notes.length === 0 ? (<p>Start by Adding a note.</p>) : (<div>{notes.slice(0).reverse().map((n,i) => <NotesCard key={i} note={n} refresh={getAllNotes}/>)}</div>)}</div>)}
+        {notes && (<div>{notes.length === 0 ? (<p>Start by Adding a note.</p>) : (<div>{notes.slice(0).reverse().map((n,i) => <Link to={`/${n.id}`} ><NotesCard key={i} note={n} refresh={getAllNotes}/></Link>)}</div>)}</div>)}
         </Grid>
       </Grid>
       <div className={classes.newNoteFab}><NewNoteFab refresh={getAllNotes}/></div>
