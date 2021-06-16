@@ -5,7 +5,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { get } from '../services/dbService';
 import Grid from '@material-ui/core/Grid';
 import {
-    useParams
+    useParams, Redirect
   } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
@@ -31,7 +31,9 @@ export default function NotePage() {
   let { id } = useParams();
  
   useEffect(() => { 
-    if (!id) return;
+    if (!id) {
+        <Redirect to="/" />
+    };
     async function initData(){
         const getNote = async () => {
             console.log({id})
