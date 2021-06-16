@@ -1,24 +1,24 @@
 {
   "files": {
     "main.css": "/qnote/static/css/main.8fcbfacd.chunk.css",
-    "main.js": "/qnote/static/js/main.06fa7715.chunk.js",
-    "main.js.map": "/qnote/static/js/main.06fa7715.chunk.js.map",
+    "main.js": "/qnote/static/js/main.d12abe6b.chunk.js",
+    "main.js.map": "/qnote/static/js/main.d12abe6b.chunk.js.map",
     "runtime-main.js": "/qnote/static/js/runtime-main.22ec7673.js",
     "runtime-main.js.map": "/qnote/static/js/runtime-main.22ec7673.js.map",
-    "static/js/2.bec2391b.chunk.js": "/qnote/static/js/2.bec2391b.chunk.js",
-    "static/js/2.bec2391b.chunk.js.map": "/qnote/static/js/2.bec2391b.chunk.js.map",
+    "static/js/2.6737e183.chunk.js": "/qnote/static/js/2.6737e183.chunk.js",
+    "static/js/2.6737e183.chunk.js.map": "/qnote/static/js/2.6737e183.chunk.js.map",
     "static/js/3.5b21c21a.chunk.js": "/qnote/static/js/3.5b21c21a.chunk.js",
     "static/js/3.5b21c21a.chunk.js.map": "/qnote/static/js/3.5b21c21a.chunk.js.map",
     "index.html": "/qnote/index.html",
     "service-worker.js": "/qnote/service-worker.js",
     "service-worker.js.map": "/qnote/service-worker.js.map",
     "static/css/main.8fcbfacd.chunk.css.map": "/qnote/static/css/main.8fcbfacd.chunk.css.map",
-    "static/js/2.bec2391b.chunk.js.LICENSE.txt": "/qnote/static/js/2.bec2391b.chunk.js.LICENSE.txt"
+    "static/js/2.6737e183.chunk.js.LICENSE.txt": "/qnote/static/js/2.6737e183.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.22ec7673.js",
-    "static/js/2.bec2391b.chunk.js",
+    "static/js/2.6737e183.chunk.js",
     "static/css/main.8fcbfacd.chunk.css",
-    "static/js/main.06fa7715.chunk.js"
+    "static/js/main.d12abe6b.chunk.js"
   ]
 }
