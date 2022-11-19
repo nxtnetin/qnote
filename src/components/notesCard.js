@@ -1,48 +1,20 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import React from "react";
 import moment from "moment";
-import Card from '@material-ui/core/Card';
-import CardHeader from '@material-ui/core/CardHeader';
-import CardContent from '@material-ui/core/CardContent';
-import Avatar from '@material-ui/core/Avatar';
-import IconButton from '@material-ui/core/IconButton';
-import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
-import Typography from '@material-ui/core/Typography';
-import { red } from '@material-ui/core/colors';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
+import {
+  Card,
+  CardHeader,
+  CardContent,
+  Avatar,
+  IconButton,
+  Menu,
+  MenuItem,
+} from "@mui/material";
+import MoreVertIcon from "@mui/icons-material/MoreVert";
 
-import { del } from '../services/dbService';
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    marginBottom: theme.spacing(1),
-    textAlign: "left",
-    borderBottom: "solid 1px rgba(0,0,0,0.1)",
-    borderRadius: "0"
-  },
-  media: {
-    height: 0,
-    paddingTop: '56.25%', // 16:9
-  },
-  expand: {
-    transform: 'rotate(0deg)',
-    marginLeft: 'auto',
-    transition: theme.transitions.create('transform', {
-      duration: theme.transitions.duration.shortest,
-    }),
-  },
-  expandOpen: {
-    transform: 'rotate(180deg)',
-  },
-  avatar: {
-    backgroundColor: red[500],
-  },
-}));
+import { del } from "../services/dbService";
 
 export default function NotesCard(props) {
-  const {note} = props;
-  const classes = useStyles();
+  const { note } = props;
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClick = (event) => {
@@ -55,21 +27,26 @@ export default function NotesCard(props) {
 
   const handleDelete = () => {
     console.log("Delete the note", note);
-    del(note.id).then(e=>{console.log("Deleted note.", e)}).catch(err=>{console.log(err)});
+    del("notes", note.id)
+      .then((e) => {
+        console.log("Deleted note.", e);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
     props.refresh();
   };
-  
+
   return (
-    
-    <Card className={classes.root} elevation={0}>
+    <Card elevation={0}>
       <CardHeader
-        avatar={
-          <Avatar aria-label="recipe" className={classes.avatar}>
-            R
-          </Avatar>
-        }
+        avatar={<Avatar aria-label="recipe">R</Avatar>}
         action={
-          <IconButton aria-label="settings" aria-haspopup="true" onClick={handleClick}>
+          <IconButton
+            aria-label="settings"
+            aria-haspopup="true"
+            onClick={handleClick}
+          >
             <MoreVertIcon />
           </IconButton>
         }
@@ -88,9 +65,7 @@ export default function NotesCard(props) {
         <MenuItem onClick={handleDelete}>Delete</MenuItem>
       </Menu>
       <CardContent>
-        <Typography variant="body2" color="textSecondary" component="p">
-          {note.body}
-        </Typography>
+        <div dangerouslySetInnerHTML={{ __html: note.body }} />
       </CardContent>
     </Card>
   );
